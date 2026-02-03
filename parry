@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parry ji 💗</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial;
+  background:linear-gradient(#ffd6e8,#fff3f8);
+}
+.card{
+  background:white;
+  padding:26px;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  text-align:center;
+  width:90%;
+  max-width:520px;
+}
+h1{font-size:22px;}
+.playground{
+  position:relative;
+  height:150px;
+  background:#fff7fb;
+  border-radius:16px;
+  margin-top:18px;
+}
+button{
+  border:none;
+  padding:12px 18px;
+  border-radius:999px;
+  font-size:16px;
+}
+#yes{
+  background:#ff3b7a;
+  color:white;
+  font-weight:bold;
+}
+#no{
+  position:absolute;
+  background:#eee;
+  left:65%;
+  top:55%;
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div style="font-size:50px;">🐥💗</div>
+  <h1>Parry ji, will you be my Valentine? 💕</h1>
+
+  <div class="playground" id="area">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+</div>
+
+<script>
+const noBtn=document.getElementById("no");
+const area=document.getElementById("area");
+
+function move(){
+  const a=area.getBoundingClientRect();
+  const b=noBtn.getBoundingClientRect();
+  noBtn.style.left=Math.random()*(a.width-b.width)+"px";
+  noBtn.style.top=Math.random()*(a.height-b.height)+"px";
+}
+
+noBtn.addEventListener("mouseenter",move);
+noBtn.addEventListener("touchstart",e=>{e.preventDefault();move();},{passive:false});
+noBtn.addEventListener("click",e=>{e.preventDefault();move();});
+
+document.getElementById("yes").onclick=()=>{
+  document.body.innerHTML="<h1 style='text-align:center;margin-top:40vh;'>🥰 YESSS! 💍</h1>";
+};
+</script>
+</body>
+</html>
